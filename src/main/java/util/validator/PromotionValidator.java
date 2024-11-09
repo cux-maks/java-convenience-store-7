@@ -23,7 +23,7 @@ public class PromotionValidator {
     }
 
     private static void validateName(String name) {
-        if (name == null || name.trim().isEmpty()) {
+        if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException(PROMOTION_NAME_NOT_NULL.getMessage());
         }
     }
