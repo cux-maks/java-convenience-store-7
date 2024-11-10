@@ -6,20 +6,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
 public class PromotionValidator {
+
     public static void validatePromotion(String name, int buy, int get, LocalDate startDate, LocalDate endDate) {
         validateName(name);
         validateBuy(buy);
         validateGet(get);
         validateStartDate(startDate);
         validateEndDate(endDate);
-    }
-
-    public static void validateFiveLength(String line) {
-        if (line.split(",").length != 5) {
-            throw new IllegalArgumentException(
-                    String.format(INVALID_LENGTH_EXCEPTION.getMessage(), line)
-            );
-        }
     }
 
     private static void validateName(String name) {
@@ -53,6 +46,14 @@ public class PromotionValidator {
     private static void validateEndDate(LocalDate endDate) {
         if (endDate == null) {
             throw new IllegalArgumentException(PROMOTION_END_DATE_NOT_NULL.getMessage());
+        }
+    }
+
+    public static void validateFiveLength(String line) {
+        if (line.split(",").length != 5) {
+            throw new IllegalArgumentException(
+                    String.format(INVALID_LENGTH_EXCEPTION.getMessage(), line)
+            );
         }
     }
 
